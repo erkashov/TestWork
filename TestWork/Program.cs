@@ -40,7 +40,7 @@ namespace TestWork
                 JObject weatherObject = JObject.Parse(weatherJSON);
                 
                 var weather = weatherObject.ToObject<WeatherData>();
-
+                //переводим время восхода и заката в дату с местным временем
                 DateTime sunrise = new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(weather.sys.sunrise + weather.timezone);
                 DateTime sunset = new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(weather.sys.sunset + weather.timezone);
                 string output = $"Температура - {weather.main.temp.ToString()}\n" +
